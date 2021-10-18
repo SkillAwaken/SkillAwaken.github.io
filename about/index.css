@@ -272,7 +272,7 @@ body{
     20%{
         opacity: 1;
         filter: alpha(opacity=100);
-        transform: scale(1.5);
+        transform: scale(1.2);
     }
     25%{
         opacity: 0;
@@ -300,7 +300,7 @@ body{
     40%{
         opacity: 1;
         filter: alpha(opacity=100);
-        transform: scale(1.5);
+        transform: scale(1.2);
     }
     45%{
         opacity: 0;
@@ -328,7 +328,7 @@ body{
     60%{
         opacity: 1;
         filter: alpha(opacity=100);
-        transform: scale(1.5);
+        transform: scale(1.2);
     }
     65%{
         opacity: 0;
