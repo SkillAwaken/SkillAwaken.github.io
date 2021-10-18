@@ -241,7 +241,127 @@ body{
     height: 100%;
 }
 
+.slider_container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    max-width: 1920px;
+    max-height: 1100px;
+    align-content: center;
+}
+    
+.slider_container div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
 
+
+
+.anima1{
+    animation: anima1 10s infinite linear;
+}
+
+@keyframes anima1{
+    5%{
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    20%{
+        opacity: 1;
+        filter: alpha(opacity=100);
+        transform: scale(1.5);
+    }
+    25%{
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    100%{
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
+
+.anima2{
+    animation: anima2 10s infinite linear;
+}
+
+@keyframes anima2{
+    20%{
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    25%{
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    40%{
+        opacity: 1;
+        filter: alpha(opacity=100);
+        transform: scale(1.5);
+    }
+    45%{
+        opacity: 0;
+        filter:alpha(opacity=0);
+    }
+    100%{
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
+
+.anima3{
+    animation: anima3 10s infinite linear;
+}
+
+@keyframes anima3{
+    40%{
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    45%{
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    60%{
+        opacity: 1;
+        filter: alpha(opacity=100);
+        transform: scale(1.5);
+    }
+    65%{
+        opacity: 0;
+        filter:alpha(opacity=0);
+    }
+    100%{
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
+
+.anima4{
+    animation: anima4 10s infinite linear;
+}
+
+@keyframes anima4{
+    60%{
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    65%{
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    90%{
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    100%{
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
 
 @media screen and (min-width: 768px) {
     
