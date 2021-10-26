@@ -203,64 +203,28 @@ body{
     stroke-dashoffset: -138px;
 }
 
-/*banner*/
-.banner {
-    position: relative;
-    margin: 0;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-}
-
-.banner .banner_bg{
-    position: absolute;
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    color: #555;
-}
-
-.banner  video {
-    position: absolute;
-    margin: 20px;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.banner iframe,
-.banner object,
-.banner embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 
 .slider_container {
-    width: 100%;
-    height: auto;
+    top:0;
+    left: 0;
+    width: 1520px;
+    height: 780px;
     position: relative;
-    max-width: 1920px;
-    max-height: 1100px;
     align-content: center;
+    overflow: hidden;
 }
     
-.slider_container div {
+.slider_container img {
+    top: -15%;
     position: absolute;
-    top: 0;
-    left: 0;
+    transform: scale(1,1);
     opacity: 0;
     filter: alpha(opacity=0);
 }
 
 
 
-.anima1{
+.slider_container .anima1{
     animation: anima1 10s infinite linear;
 }
 
@@ -281,10 +245,11 @@ body{
     100%{
         opacity: 0;
         filter: alpha(opacity=0);
+        transform: scale(1);
     }
 }
 
-.anima2{
+.slider_container .anima2{
     animation: anima2 10s infinite linear;
 }
 
@@ -309,10 +274,11 @@ body{
     100%{
         opacity: 0;
         filter: alpha(opacity=0);
+        transform: scale(1);
     }
 }
 
-.anima3{
+.slider_container .anima3{
     animation: anima3 10s infinite linear;
 }
 
@@ -337,10 +303,11 @@ body{
     100%{
         opacity: 0;
         filter: alpha(opacity=0);
+        transform: scale(1);
     }
 }
 
-.anima4{
+.slider_container .anima4{
     animation: anima4 10s infinite linear;
 }
 
