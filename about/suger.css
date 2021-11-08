@@ -8,6 +8,10 @@
     font-family: 'Noto Sans TC', sans-serif;
 }
 
+html,body{
+    scroll-behavior: smooth;
+}
+
 img{
     max-width: 100%;
     height: auto;
@@ -116,7 +120,7 @@ body{
     position: fixed;
     background-color: #AE0000;
     width: 0;
-    height: 350px;
+    height: 400px;
     right: 0vw;
     top: 0;
     overflow: hidden;
@@ -247,6 +251,7 @@ body{
 
 .history{
     margin: 100px 0;
+    margin-bottom: 200px;
 }
 
 h2{
