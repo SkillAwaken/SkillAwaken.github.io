@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <link href="suger.css" rel="stylesheet" type="text/css" />
+    <link href="flexslider.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="jquery.flexslider.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(window).load(function() {
+          $('.flexslider').flexslider();
+        });
+    </script>
+    <title> 喚起技藝 </title>
+</head>
+<body>
+    <div class="banner">
+        <div id="banner_bg"></div>
+        <div id="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YVX-9bXnD3s?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div id="top_bar">
+        <div id="bar_bg" style="opacity: 0.5;"></div>
+        <div id="bar_content">
+            <input id="toggle" type="checkbox">
+            <div class="menu_bg">
+                <div id="menu_link_content">
+                    <a href="../about/index.html" class="menu_link">
+                        首頁
+                        <div class="link_line"></div>
+                    </a>
+                    <a href="../about/suger.html" class="menu_link">
+                        吹糖人
+                        <div class="link_line"></div>
+                    </a>
+                    <a href="../about/paperart.html" class="menu_link">
+                        傳統紙紮
+                        <div class="link_line"></div>
+                    </a>
+                    <a href="../about/shoes.html" class="menu_link">
+                        手工木屐
+                        <div class="link_line"></div>
+                    </a>
+                </div>
+            </div>
+            <div id="menu_bar">
+                <span class="menu_text">MENU </span>
+                <div id="menu_btn">
+                    <label for="toggle" class="la">
+                        <svg class="ham hamRotate" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+                            <path class="line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"></path>
+                            <path class="line middle" d="m 30,50 h 40"></path>
+                            <path class="line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"></path>
+                        </svg>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intro">
+        <div class="wrap">
+            <div class="item-group">
+                <div class="pic1">
+                    <img src="../pic/papermaster.png"> 
+                </div>
+                <div class="text">
+                    <h2>
+                        生與死的說書人<span style="font-size:32px;word-spacing: 10px;"> 劉老師</span>
+                    </h2>
+                    <p>
+                        <br>「台灣文化值得敬重,傳統紙紮亦然<br>廟宇有紙紮需求的各種祭神儀式、民俗慶典更加地吸引我<br>其背後的歷史故事、深奧的文化意涵和精神寄託<br>是
+                        紙紮重要的核心價值。」
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history">
+        <div class="wrap">
+            <div class="item-group">
+                <div class="text">
+                    <span style="font-size: 28pt;font-weight: bolder;">談起生人殉葬,紙紮是一份思念</span>
+                    <p>早在五千多年前就有了殉葬的制度,直到秦漢時期才逐漸減少<br>而當時的兵馬俑即是一種代替活人陪葬的殉葬品,衍伸至今日的紙紮文化<br>我們與逝去的人有著深厚且不可分割的情感,離開人間到了另一個陌生的地方<br>不知道他們在新的世界適應得如何<br>在科學無法解釋得領域裡,我們純粹的在心理上<br>僅僅希望他們豐衣足食,陽間有的在那也不能缺<br>即是一份思
+                    念,一份祝福,一份最後的不捨。</p>
+                </div>
+                <div class="pic1">
+                    <img src="../pic/paper9.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="../pic/paper1.png" />
+                <p class="flex-caption">以前一般的家庭多半是這兩種傳統建築,然而隨著生活型態、工
+                    作性質、眼界思想的改變,逐漸將世界各地的特色建築帶回台灣。</p>
+            </li>
+            <li>
+              <img src="../pic/paper2.png" />
+              <p class="flex-caption">竹子劈砍成一根根竹條後,彈性很好,適合做各種造型。竹子屬一節一節不斷的生長,也代表著與往生者情感連結的生生
+            不息。</p>
+            </li>
+            <li>
+                <img src="../pic/paper3.png" />
+                <p class="flex-caption">傳統紙紮屋的格局是代代相傳的道理,屋子必備神廳、客廳、廁所,臥室至少
+            需配置兩間臥室。</p>
+            </li>
+            <li>
+                <img src="../pic/paper6.png" />
+                <p class="flex-caption">機器製造的產品是理性,手工製作是感性。一針一線的手工圍巾,留著重複拆線縫製的痕跡,比不上機器的精緻,但肯定特別溫暖。</p>
+            </li>
+        </ul>
+    </div>
+    <div class="footer">
+        &copy; copyright 2021 by NCYU DEDM     
+    </div>
+</body>          
+</html>
