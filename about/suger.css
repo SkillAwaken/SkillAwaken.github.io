@@ -1,11 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
-@import url(https://fonts.googleapis.com/earlyaccess/cwtexkai.css);
+@font-face {
+    font-family: "zenku";
+    src: url("../ZenKurenaido-Regular.ttf");
+}
+
+@font-face {
+    font-family: "kleeone";
+    src: url("../KleeOne-Regular.ttf");
+}
 
 *{
     margin: 0;
     padding: 0;
     list-style: none;
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'kleeone';
 }
 
 html,body{
@@ -247,6 +254,7 @@ body{
 
 .intro{
     margin: 100px 0;
+    margin-top: 150px;
 }
 
 .history{
@@ -298,7 +306,7 @@ p{
         display: flex;
         padding: 0 20px;
         margin-top: 50px;
-        max-height: 600px;
+        max-height: 650px;
         box-sizing: border-box;
         flex-direction: column;
         justify-content: center;
