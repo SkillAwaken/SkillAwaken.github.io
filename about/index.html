@@ -3,19 +3,13 @@
 <head>
     <meta charset="utf-8">
     <link href="index.css" rel="stylesheet" type="text/css" />
-    <link href="flexslider.css" rel="stylesheet" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="jquery.flexslider.js"></script>
-    <script type="text/javascript" charset="utf-8">
-        $(window).load(function() {
-          $('.flexslider').flexslider();
-        });
-    </script>
     <title>喚起技藝</title>
 </head>
 <body>
     <div id="top_bar">
-        <div id="bar_bg" style="opacity: 0.5;"></div>
+        <div class="title">
+            <a href="../about/index.html"><img src="../pic/skill.png"></a>
+        </div>
         <div id="bar_content">
             <input id="toggle" type="checkbox">
             <div class="menu_bg">
@@ -36,10 +30,13 @@
                         手工木屐
                         <div class="link_line"></div>
                     </a>
+                    <a href="../about/about.html" class="menu_link">
+                        關於我們
+                        <div class="link_line"></div>
+                    </a>
                 </div>
             </div>
             <div id="menu_bar">
-                <span class="menu_text">MENU </span>
                 <div id="menu_btn">
                     <label for="toggle" class="la">
                         <svg class="ham hamRotate" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
@@ -48,6 +45,9 @@
                             <path class="line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"></path>
                         </svg>
                     </label>
+                </div>
+                <div class="logo">
+                    <a href="../about/index.html"><img src="../pic/logo.png"></a>
                 </div>
             </div>
         </div>
@@ -58,14 +58,5 @@
         <img src="../pic/anima2.JPG" class=anima2>
         <img src="../pic/anima3.JPG" class=anima3>
         <img src="../pic/anima4.png" class=anima4>
-    </div>
-    <div class="button">
-        <a href="#about" class="btn"><img src="../pic/logo.png"></a>
-    </div>
-    <div class="abus" id="about">
-        <h1>關於我們</h1>
-        <p>我們是四位來自國立嘉義大學，數位學習設計與管理學系的學生<br>身處於這個資訊取得快速方便的時代，許多的事物如同煙火一般<br>迅速爆紅卻又無聲無息地就消失於我們的記憶之中，因此我們希望<br>藉這個機會，透過文字與影像的紀錄，喚起那些隱藏於人們心中<br>那些特殊的技藝。
-        </p>
-        <img src="../pic/group.JPG" class="group">
     </div>
 </body>
