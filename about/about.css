@@ -21,7 +21,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: antiquewhite;
+    background-color: #d1d5cd;
 }
 
 #top_bar {
@@ -239,4 +239,50 @@ body{
     text-align: center;
     margin: 10px 0 0;
     bottom: 0;
+}
+
+/*about*/
+.about{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.about .container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    vertical-align: top;
+    justify-content: center;
+}
+
+.about img{
+    width: 40%;
+    height: auto;
+    margin: 20px;
+    min-height: 300px;
+    max-height: 420px;
+    min-width: 450px;
+}
+
+.about .text{
+    width: 30%;
+    height: auto;
+    margin: 20px;
+    min-height: 300px;
+}
+
+h2{
+    font-size: 40px;
+}
+
+p{
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: lighter;
 }
