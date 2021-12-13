@@ -364,7 +364,13 @@ body{
 
 @media screen and (max-width: 768px) {
     .slider_container{
-        top: 0;
+        top: 90px;
+        height: 100%;
+        width: auto;
+    }
+
+    .slider_container img{
+        height: auto;
     }
 
     #top_bar {
