@@ -9,7 +9,24 @@
     <script src="jquery.flexslider.js"></script>
     <script type="text/javascript" charset="utf-8">
         $(window).load(function() {
-          $('.flexslider').flexslider();
+            // The slider being synced must be initialized first
+            $('#carousel').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                itemWidth: 210,
+                itemMargin: 5,
+                asNavFor: '#slider'
+            });
+ 
+            $('#slider').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                sync: "#carousel"
+            });
         });
     </script>
     <title> 喚起技藝 </title>
@@ -22,16 +39,18 @@
         </div>
     </div>
     <div id="top_bar">
-        <div id="bar_bg" style="opacity: 0.5;"></div>
+        <div class="title">
+            <a href="../about/index.html"><img src="../pic/skill.png"></a>
+        </div>
         <div id="bar_content">
             <input id="toggle" type="checkbox">
             <div class="menu_bg">
                 <div id="menu_link_content">
-                    <a href="../about/index.html" class="menu_link">
+                    <a href="index.html" class="menu_link">
                         首頁
                         <div class="link_line"></div>
                     </a>
-                    <a href="../about/suger.html" class="menu_link">
+                    <a href="suger.html" class="menu_link">
                         吹糖人
                         <div class="link_line"></div>
                     </a>
@@ -43,10 +62,13 @@
                         手工木屐
                         <div class="link_line"></div>
                     </a>
+                    <a href="../about/about.html" class="menu_link">
+                        關於我們
+                        <div class="link_line"></div>
+                    </a>
                 </div>
             </div>
             <div id="menu_bar">
-                <span class="menu_text">MENU </span>
                 <div id="menu_btn">
                     <label for="toggle" class="la">
                         <svg class="ham hamRotate" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
@@ -55,6 +77,19 @@
                             <path class="line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"></path>
                         </svg>
                     </label>
+                </div>
+                <div class="logo">
+                    <a href="../about/index.html"><img src="../pic/logo.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slogan">
+        <div class="wrap">
+            <div class="item-group">
+                <div class="text">
+                    <h2>傳統紙紮<br></h2>
+                    <p> <br>我在紙紮的世界霧裡看花<br> <br>直盯縷縷飄散的灰煙 刺激淚腺<br> <br>享受往大腦注射團團回憶的快感<br> </p>
                 </div>
             </div>
         </div>
@@ -70,7 +105,7 @@
                         生與死的說書人<span style="font-size:32px;word-spacing: 10px;"> 劉老師</span>
                     </h2>
                     <p>
-                        <br>「台灣文化值得敬重,傳統紙紮亦然<br>廟宇有紙紮需求的各種祭神儀式、民俗慶典更加地吸引我<br>其背後的歷史故事、深奧的文化意涵和精神寄託<br>是
+                        <br>「台灣文化值得敬重，傳統紙紮亦然<br>廟宇有紙紮需求的各種祭神儀式、民俗慶典更加地吸引我<br>其背後的歷史故事、深奧的文化意涵和精神寄託<br>是
                         紙紮重要的核心價值。」
                     </p>
                 </div>
@@ -82,35 +117,65 @@
             <div class="item-group">
                 <div class="text">
                     <span style="font-size: 28pt;font-weight: bolder;">談起生人殉葬,紙紮是一份思念</span>
-                    <p>早在五千多年前就有了殉葬的制度,直到秦漢時期才逐漸減少<br>而當時的兵馬俑即是一種代替活人陪葬的殉葬品,衍伸至今日的紙紮文化<br>我們與逝去的人有著深厚且不可分割的情感,離開人間到了另一個陌生的地方<br>不知道他們在新的世界適應得如何<br>在科學無法解釋得領域裡,我們純粹的在心理上<br>僅僅希望他們豐衣足食,陽間有的在那也不能缺<br>即是一份思
-                    念,一份祝福,一份最後的不捨。</p>
-                </div>
-                <div class="pic1">
-                    <img src="../pic/paper9.png">
+                    <p style="text-align: left;">早在五千多年前就有了殉葬的制度,直到秦漢時期才逐漸減少，而當時的兵馬俑即是一種代替活人陪葬的殉葬品，衍伸至今日的紙紮文化，我們與逝去的人有著深厚且不可分割的情感，離開人間到了另一個陌生的地方，不知道他們在新的世界適應得如何，在科學無法解釋得領域裡，我們純粹的在心理上，僅僅希望他們豐衣足食，陽間有的在那也不能缺，即是一份思
+                    念，一份祝福，一份最後的不捨。</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="flexslider">
+    <div id="slider" class="flexslider">
         <ul class="slides">
             <li>
                 <img src="../pic/paper1.png" />
-                <p class="flex-caption">以前一般的家庭多半是這兩種傳統建築,然而隨著生活型態、工
-                    作性質、眼界思想的改變,逐漸將世界各地的特色建築帶回台灣。</p>
             </li>
             <li>
-              <img src="../pic/paper2.png" />
-              <p class="flex-caption">竹子劈砍成一根根竹條後,彈性很好,適合做各種造型。竹子屬一節一節不斷的生長,也代表著與往生者情感連結的生生
-            不息。</p>
+                <img src="../pic/paper2.png" />
             </li>
             <li>
                 <img src="../pic/paper3.png" />
-                <p class="flex-caption">傳統紙紮屋的格局是代代相傳的道理,屋子必備神廳、客廳、廁所,臥室至少
-            需配置兩間臥室。</p>
+            </li>
+            <li>
+                <img src="../pic/paper4.png" />
+            </li>
+            <li>
+                <img src="../pic/paper5.png" />
             </li>
             <li>
                 <img src="../pic/paper6.png" />
-                <p class="flex-caption">機器製造的產品是理性,手工製作是感性。一針一線的手工圍巾,留著重複拆線縫製的痕跡,比不上機器的精緻,但肯定特別溫暖。</p>
+            </li>
+            <li>
+                <img src="../pic/paper7.png" />
+            </li>
+            <li>
+                <img src="../pic/paper8.png" />
+            </li>
+        </ul>
+    </div>
+    <div id="carousel" class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="../pic/paper1.png" />
+            </li>
+            <li>
+                <img src="../pic/paper2.png" />
+            </li>
+            <li>
+                <img src="../pic/paper3.png" />
+            </li>
+            <li>
+                <img src="../pic/paper4.png" />
+            </li>
+            <li>
+                <img src="../pic/paper5.png" />
+            </li>
+            <li>
+                <img src="../pic/paper6.png" />
+            </li>
+            <li>
+                <img src="../pic/paper7.png" />
+            </li>
+            <li>
+                <img src="../pic/paper8.png" />
             </li>
         </ul>
     </div>
