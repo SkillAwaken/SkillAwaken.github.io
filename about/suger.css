@@ -446,6 +446,10 @@ p{
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
+
+    .intro h2{
+        font-size: 50px;
+    }
     
     .intro .item-group .text{
         display: flex;
