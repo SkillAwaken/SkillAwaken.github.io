@@ -5,33 +5,47 @@
     <meta charset="utf-8" />
     <link href="suger.css" rel="stylesheet" type="text/css" />
     <link href="flexslider.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="jquery.flexslider.js"></script>
     <script type="text/javascript" charset="utf-8">
         $(window).load(function() {
-          $('.flexslider').flexslider();
+            // The slider being synced must be initialized first
+            $('#carousel').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                itemWidth: 210,
+                itemMargin: 5,
+                asNavFor: '#slider'
+            });
+ 
+            $('#slider').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                sync: "#carousel"
+            });
         });
     </script>
     <title> 喚起技藝 </title>
 </head>
 <body>
-    <div class="banner">
-        <div id="banner_bg"></div>
-        <div id="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/YVX-9bXnD3s?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
     <div id="top_bar">
-        <div id="bar_bg" style="opacity: 0.5;"></div>
+        <div class="title">
+            <a href="../about/index.html"><img src="../pic/skill.png"></a>
+        </div>
         <div id="bar_content">
             <input id="toggle" type="checkbox">
             <div class="menu_bg">
                 <div id="menu_link_content">
-                    <a href="../about/index.html" class="menu_link">
+                    <a href="index.html" class="menu_link">
                         首頁
                         <div class="link_line"></div>
                     </a>
-                    <a href="../about/suger.html" class="menu_link">
+                    <a href="suger.html" class="menu_link">
                         吹糖人
                         <div class="link_line"></div>
                     </a>
@@ -43,10 +57,13 @@
                         手工木屐
                         <div class="link_line"></div>
                     </a>
+                    <a href="../about/about.html" class="menu_link">
+                        關於我們
+                        <div class="link_line"></div>
+                    </a>
                 </div>
             </div>
             <div id="menu_bar">
-                <span class="menu_text">MENU </span>
                 <div id="menu_btn">
                     <label for="toggle" class="la">
                         <svg class="ham hamRotate" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
@@ -56,6 +73,24 @@
                         </svg>
                     </label>
                 </div>
+                <div class="logo">
+                    <a href="../about/index.html"><img src="../pic/logo.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <div id="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YVX-9bXnD3s?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="slogan">
+        <div class="wrap">
+            <div class="item-group">
+                <div class="text">
+                    <h2>吹糖人<br></h2>
+                    <p> <br>延續六百年的手藝<br> <br>從前,人們用吹糖擔起家計<br> <br>如今,只想淺嘗這一口甜蜜<br> </p>
+                </div>
             </div>
         </div>
     </div>
@@ -63,14 +98,14 @@
         <div class="wrap">
             <div class="item-group">
                 <div class="pic1">
-                    <img src="../pic/papermaster.png"> 
+                    <img src="../pic/hsuteacher.jpg"> 
                 </div>
                 <div class="text">
                     <h2>
                         古老的魔術師<span style="font-size:32px;word-spacing: 10px;"> 許雅棠老師</span>
                     </h2>
-                    <p>
-                        <br>自古吹糖人都是將一百度以上的糖團捧在手中<br>運用精準快速的手法<br>捏塑出簡單卻頗有神韻的多物造型
+                    <p style="word-break:keep-all;">
+                        <br>自古吹糖人都是將一百度以上的糖團捧在手中，運用精準快速的手法，捏塑出簡單卻頗有神韻的多物造型。
                     </p>
                 </div>
             </div>
@@ -80,33 +115,82 @@
         <div class="wrap">
             <div class="item-group">
                 <div class="text">
-                    <p>早在六百年前，那時朱元璋剛建立明朝，生性多疑的他，<br>為了防止功臣們集結起來逆反，下令一舉殺害所有功臣。<br>明朝第一謀臣劉伯溫也遭到追殺在逃亡時遇見一位挑著糖的老人出手相救，<br>趕緊與劉伯溫換了裝才逃過追殺之人，得以倖存。從那天起，<br>劉伯溫便隱姓埋名，天天挑著糖擔子在街上亂竄賣糖，<br>賣著賣著就開始玩起了糖。突發奇想把糖加熱便軟後塑型，<br>捏造出各種人物、動 物、神獸等等的造型，身受小孩喜愛，<br>爭先恐後地買糖。後來，劉伯溫就將這份技術傳授下去，<br>代代相傳而演變成了今日的吹糖。</p>
-                </div>
-                <div class="pic1">
-                    <img src="../pic/paper9.png">
+                    <p style="text-align: left;">早在六百年前，那時朱元璋剛建立明朝，生性多疑的他為了防止功臣們集結起來逆反，下令一舉殺害所有功臣，明朝第一謀臣劉伯溫也遭到追殺在逃亡時遇見一位挑著糖的老人出手相救，趕緊與劉伯溫換了裝才逃過追殺之人，得以倖存。從那天起劉伯溫便隱姓埋名，天天挑著糖擔子在街上亂竄賣糖，賣著賣著就開始玩起了糖。突發奇想把糖加熱便軟後塑型，捏造出各種人物、動 物、神獸等等的造型，身受小孩喜愛，爭先恐後地買糖。後來，劉伯溫就將這份技術傳授下去，代代相傳而演變成了今日的吹糖</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="flexslider">
+    <div id="slider" class="flexslider">
         <ul class="slides">
             <li>
-                <img src="../pic/paper1.png" />
-                <p class="flex-caption">站在一旁看著老師的雙手，熟練的操弄著麥芽糖液，用盡全力的攪和。</p>
+                <img src="../pic/sugerf1.jpg" />
             </li>
             <li>
-              <img src="../pic/paper2.png" />
-              <p class="flex-caption">與糖團戰火紛飛的比武後，放進各種造型的木盒裡，最後靠著小朋
-                友自己的吹工，完成一場吹糖體驗。</p>
+                <img src="../pic/sugerpic1.JPG" />
             </li>
             <li>
-                <img src="../pic/paper3.png" />
-                <p class="flex-caption">糖再加熱的過程中，隨著溫度的高低，產生了物理和化學變化，而呈現出
-                    不同的樣貌。</p>
+                <img src="../pic/sugerf3.jpg" />
             </li>
             <li>
-                <img src="../pic/paper4.png" />
-                <p class="flex-caption">一場手藝展現，好似與糖團談了一場快速且激情火熱的戀愛。</p>
+                <img src="../pic/sugerf4.jpg" />
+            </li>
+            <li>
+                <img src="../pic/sugerf5.jpg" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic2.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic3.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic4.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic5.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic6.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic7.JPG" />
+            </li>
+        </ul>
+    </div>
+    <div id="carousel" class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="../pic/sugerf1.jpg" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic1.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerf3.jpg" />
+            </li>
+            <li>
+                <img src="../pic/sugerf4.jpg" />
+            </li>
+            <li>
+                <img src="../pic/sugerf5.jpg" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic2.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic3.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic4.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic5.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic6.JPG" />
+            </li>
+            <li>
+                <img src="../pic/sugerpic7.JPG" />
             </li>
         </ul>
     </div>
