@@ -315,6 +315,7 @@ body{
     box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     writing-mode: vertical-rl;
 }
 
@@ -425,6 +426,18 @@ p{
         margin-top: 90px;
     }
 
+    .slogan .text{
+        width: 100%;
+        display: flex;
+        margin: 50px 0;
+        padding: 0 5px;
+        max-height: 600px;
+        box-sizing: border-box;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
     .intro{
         margin: 50px 0;
         margin-top: 0;
@@ -442,7 +455,6 @@ p{
     }
 
     .intro .item-group img{
-        max-height: 650px;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
@@ -459,7 +471,7 @@ p{
         box-sizing: border-box;
         flex-direction: column;
         justify-content: center;
-        text-align: center;
+        align-items: center;
         writing-mode: horizontal-tb;
     }
 
