@@ -253,111 +253,112 @@ body{
     filter: alpha(opacity=0);
 }
 
+@media screen and (min-width: 769px) {
 
+    .slider_container .anima1{
+        animation: anima1 10s infinite linear;
+    }
 
-.slider_container .anima1{
-    animation: anima1 10s infinite linear;
-}
+    @keyframes anima1{
+        5%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        20%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+            transform: scale(1.2);
+        }
+        25%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        100%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+            transform: scale(1);
+        }
+    }
 
-@keyframes anima1{
-    5%{
-        opacity: 1;
-        filter: alpha(opacity=100);
+    .slider_container .anima2{
+        animation: anima2 10s infinite linear;
     }
-    20%{
-        opacity: 1;
-        filter: alpha(opacity=100);
-        transform: scale(1.2);
-    }
-    25%{
-        opacity: 0;
-        filter: alpha(opacity=0);
-    }
-    100%{
-        opacity: 0;
-        filter: alpha(opacity=0);
-        transform: scale(1);
-    }
-}
 
-.slider_container .anima2{
-    animation: anima2 10s infinite linear;
-}
+    @keyframes anima2{
+        20%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        25%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        40%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+            transform: scale(1.2);
+        }
+        45%{
+            opacity: 0;
+            filter:alpha(opacity=0);
+        }
+        100%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+            transform: scale(1);
+        }
+    }
 
-@keyframes anima2{
-    20%{
-        opacity: 0;
-        filter: alpha(opacity=0);
+    .slider_container .anima3{
+        animation: anima3 10s infinite linear;
     }
-    25%{
-        opacity: 1;
-        filter: alpha(opacity=100);
-    }
-    40%{
-        opacity: 1;
-        filter: alpha(opacity=100);
-        transform: scale(1.2);
-    }
-    45%{
-        opacity: 0;
-        filter:alpha(opacity=0);
-    }
-    100%{
-        opacity: 0;
-        filter: alpha(opacity=0);
-        transform: scale(1);
-    }
-}
 
-.slider_container .anima3{
-    animation: anima3 10s infinite linear;
-}
+    @keyframes anima3{
+        40%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        45%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        60%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+            transform: scale(1.2);
+        }
+        65%{
+            opacity: 0;
+            filter:alpha(opacity=0);
+        }
+        100%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+            transform: scale(1);
+        }
+    }
 
-@keyframes anima3{
-    40%{
-        opacity: 0;
-        filter: alpha(opacity=0);
+    .slider_container .anima4{
+        animation: anima4 10s infinite linear;
     }
-    45%{
-        opacity: 1;
-        filter: alpha(opacity=100);
-    }
-    60%{
-        opacity: 1;
-        filter: alpha(opacity=100);
-        transform: scale(1.2);
-    }
-    65%{
-        opacity: 0;
-        filter:alpha(opacity=0);
-    }
-    100%{
-        opacity: 0;
-        filter: alpha(opacity=0);
-        transform: scale(1);
-    }
-}
 
-.slider_container .anima4{
-    animation: anima4 10s infinite linear;
-}
-
-@keyframes anima4{
-    60%{
-        opacity: 0;
-        filter: alpha(opacity=0);
-    }
-    65%{
-        opacity: 1;
-        filter: alpha(opacity=100);
-    }
-    90%{
-        opacity: 1;
-        filter: alpha(opacity=100);
-    }
-    100%{
-        opacity: 0;
-        filter: alpha(opacity=0);
+    @keyframes anima4{
+        60%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        65%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        90%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        100%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
     }
 }
 
@@ -421,6 +422,112 @@ body{
         right: 0vw;
         top: 0;
         transition: 0.5s;
+    }
+
+    .slider_container .animas1{
+        animation: animas1 10s infinite linear;
+    }
+    
+    @keyframes animas1{
+        5%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        20%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+            transform: scale(1.2);
+        }
+        25%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        100%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+            transform: scale(1);
+        }
+    }
+    
+    .slider_container .animas2{
+        animation: animas2 10s infinite linear;
+    }
+    
+    @keyframes animas2{
+        20%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        25%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        40%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+            transform: scale(1.2);
+        }
+        45%{
+            opacity: 0;
+            filter:alpha(opacity=0);
+        }
+        100%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+            transform: scale(1);
+        }
+    }
+    
+    .slider_container .animas3{
+        animation: animas3 10s infinite linear;
+    }
+    
+    @keyframes animas3{
+        40%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        45%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        60%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+            transform: scale(1.2);
+        }
+        65%{
+            opacity: 0;
+            filter:alpha(opacity=0);
+        }
+        100%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+            transform: scale(1);
+        }
+    }
+    
+    .slider_container .animas4{
+        animation: animas4 10s infinite linear;
+    }
+    
+    @keyframes animas4{
+        60%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        65%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        90%{
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        100%{
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
     }
 }
 
