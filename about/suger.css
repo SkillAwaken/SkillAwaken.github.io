@@ -21,6 +21,7 @@ body{
     flex-direction: column;
     justify-content: center;
     background-color: antiquewhite;
+    letter-spacing: 1px;
 }
 
 /*bar*/
