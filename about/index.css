@@ -236,7 +236,7 @@ body{
 }
 
 
-.slider_container {
+.slider_container ,.slider_container1{
     top: -130px;;
     left: 0;
 
@@ -245,7 +245,7 @@ body{
     align-content: center;
 }
     
-.slider_container img {
+.slider_container img ,.slider_container1 img{
     top: 0;
     position: absolute;
     transform: scale(1,1);
@@ -254,6 +254,27 @@ body{
 }
 
 @media screen and (min-width: 769px) {
+
+    .slider_container{
+        top: -130px;
+        left: 0;
+        max-width: 100%;
+        position: relative;
+        align-content: center;
+    }
+
+    .slider_container1{
+        top: 0;
+        left: 0;
+        height: 0;
+        max-width: 0;
+        position: relative;
+        align-content: center;
+    }
+
+    .slider_container1 img{
+        height: 0;
+    }
 
     .slider_container .anima1{
         animation: anima1 10s infinite linear;
@@ -363,14 +384,25 @@ body{
 }
 
 @media screen and (max-width: 768px) {
-    .slider_container{
+    .slider_container1{
         top: 90px;
-        height: 100%;
-        width: auto;
+        left: 0;
+        max-width: 100%;
+        position: relative;
+        align-content: center;
+    }
+
+    .slider_container{
+        top: 0;
+        left: 0;
+        height: 0;
+        max-width: 0;
+        position: relative;
+        align-content: center;
     }
 
     .slider_container img{
-        height: auto;
+        height: 0;
     }
 
     #top_bar {
@@ -424,7 +456,7 @@ body{
         transition: 0.5s;
     }
 
-    .slider_container .animas1{
+    .slider_container1 .animas1{
         animation: animas1 10s infinite linear;
     }
     
@@ -449,7 +481,7 @@ body{
         }
     }
     
-    .slider_container .animas2{
+    .slider_container1 .animas2{
         animation: animas2 10s infinite linear;
     }
     
@@ -478,7 +510,7 @@ body{
         }
     }
     
-    .slider_container .animas3{
+    .slider_container1 .animas3{
         animation: animas3 10s infinite linear;
     }
     
@@ -507,7 +539,7 @@ body{
         }
     }
     
-    .slider_container .animas4{
+    .slider_container1 .animas4{
         animation: animas4 10s infinite linear;
     }
     
