@@ -429,4 +429,8 @@ body{
         transition:all .3s; 
         position:relative;
     }
+
+    #index-list .links li a:hover span{
+        bottom:10%;
+    }
 }
