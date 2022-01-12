@@ -1,376 +1,219 @@
-function LoadingJS(){
+var styleCss = "<style>"+
+	"@keyframes loadingAnimate{from {-webkit-transform: rotateY(0deg);-o-transform: rotateY(0deg);-ms-transform: rotateY(0deg);-moz-transform: rotateY(0deg);transform: rotateY(0deg);}to {-webkit-transform: rotateY(-180deg);-o-transform: rotateY(-180deg);-ms-transform: rotateY(-180deg);-moz-transform: rotateY(-180deg);transform: rotateY(-180deg);}}"+
+	"@-webkit-keyframes loadingAnimate{from {-webkit-transform: rotateY(0deg);-o-transform: rotateY(0deg);-ms-transform: rotateY(0deg);-moz-transform: rotateY(0deg);transform: rotateY(0deg);}to {-webkit-transform: rotateY(-180deg);-o-transform: rotateY(-180deg);-ms-transform: rotateY(-180deg);-moz-transform: rotateY(-180deg);transform: rotateY(-180deg);}}"+
+	".loadingRun{-webkit-animation : loadingAnimate 1.2s infinite;animation : loadingAnimate 1.2s infinite;}</style>";
+$("body").append(styleCss);
+
+window.waitForLoading = true;
+var LoadingJS = function(){
+	this.initConfig();
+	this.initHtml();
+	this.initCss();
+	this.startLoading();
 	
-	this.loadBookConfig();   //#1F2232,#DDDDDD
+	this.onResize();
+	var self = this;
+	$(window).resize(function(){
+		self.onResize();
+	});
 	
-	this.body = $("body");
-
-  this.instance = $("<div id='loading_bg'></div>");
-  this.proTitle = $("<div id='progress_title'></div>");
-  this.stepTitle = $("<div id='step_title'></div>");
-  this.loadingBG = $("<div id='loading_progres'></div>");
-  this.loadingItem = $("<div id='loading_progress_item'></div>"); 
-
-  this.instance.css({
-  	"display" : "none",
-  	"position" : "absolute",
-  	"width" : "480px",
-  	"height" : "70px",
-  	'top' : '50%',
-  	'left' : '50%',
-  	'margin-left' : '-240px',
-  	'margin-top' : '-35px',
-  	"z-index" : 10000,
-  	"background-color" : "transparent"
-  });
-  //this.addGradient(this.instance,"#B3B3B3","white");
-  
-  /*
-  	"background-color" : "#1F2232",
-  	"border-radius" : "3px",
-  	"border":"1px solid #DCDCDC",
-  	"box-shadow" : "2px 2px 2px #333333",
-  	"-mz-box-shadow" : "2px 2px 2px #333333",
-  	"-ms-box-shadow" : "2px 2px 2px #333333",
-  	"-webkit-box-shadow" : "2px 2px 2px #333333",
-  	"-o-box-shadow" : "2px 2px 2px #333333"
-  */
-
-  this.proTitle.css({
-  	"position" : "absolute",
-  	"left" : "10px",
-  	"top" : "10px",
-  	"width" : "460px",
-  	"text-align" : "center",
-  	"font-family" : "Tahoma",
-  	"font-size" : "24px",
-  	"color" : "white",
-  	"word-break" : "keep-all",
-  	"white-space" : "nowrap",
-  	"overflow" : "hidden",
-  	"text-overflow" : "ellipsis"
-  	
-  });
-  
-  this.proTitle.css({"text-shadow":"0 0 5px #8c97cb, 0 0 10px #8c97cb,0 0 15px #8c97cb"});	 
-  
-  this.loadingBG.css({
-    "position" : "absolute",
-    "width" : "280px",
-    "height" : "10px",
-    "left" : "10px",
-    "top" : "35px",
-    "background-color" : "#F3F4F9",
-    "border-radius" : "2px",
-    "display":"none"
-  });
-  
-  this.loadingItem.css({
-  	"position" : "absolute",
-  	"width" : "0px",
-  	"height" : "10px",
-  	"left" : "0px",
-  	"top" : "0px",
-  	"background-color" : "#3FB5F2",
-  	"border-radius" : "2px",
-  	"display":"none"
-  });
-  
-  this.stepTitle.css({
-  	"position" : "absolute",
-  	"left" : "10px",
-  	"top" : "50px",
-  	"width" : "460px",
-  	"text-align" : "center",
-  	"font-family" : "Tahoma",
-  	"font-size" : "12px",
-  	"color" : this.loadingCaptionColor,
-  	"word-break" : "keep-all",
-  	"white-space" : "nowrap",
-  	"overflow" : "hidden",
-  	"text-overflow" : "ellipsis"
-  });
-  
-  //this.body.css({"background-color":this.backgroundColor});
-  this.initBackground();
-  
-  this.body.append(this.instance);
-  this.instance.append(this.proTitle);
-  this.instance.append(this.loadingBG);
-  this.instance.append(this.stepTitle);
-  this.loadingBG.append(this.loadingItem);
-  
-  this.init();  
-  this.addLoadingImage();
-  
-  this.show();
+	window.setTimeout(function(){window.waitForLoading = false;},250);
 }
 
 LoadingJS.prototype = {
-	loadBookConfig : function(){
 	
-		this.loadingCaption, this.loadingCaptionColor, this.hasLoadingPicture, this.loadingPicture;
+	initHtml : function(){
+		this.stop = false;
+		this.loadImageUrl = "<svg t=\"1525916222299\" class=\"icon\" style=\"\" viewBox=\"130 0 800 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"2478\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"49\" height=\"56\"><defs><style type=\"text/css\"></style></defs><path d=\"M835.55027 48.761905C876.805122 48.761905 910.222223 81.441158 910.222223 121.753604L910.222223 902.095C910.222223 902.095 910.222223 942.409011 876.805 975.238095L113.777778 975.238095 113.777778 24.380952 88.888889 48.761905 835.55027 48.761905ZM64 0 64 24.380952 64 1024L960 1024C835.55027 1024 904.277615 1024 960 969.325498L960 54.49204C960 54.49204 904.277615 0 835.55027 0L88.888889 0 64 0Z\" p-id=\"2479\"></path><path d=\"M775.164361 219.428572C788.910114 219.428572 800.05325 208.512847 800.05325 195.047619 800.05325 181.582391 788.910114 170.666667 775.164361 170.666667L263.111111 170.666667C249.365357 170.666667 238.222222 181.582391 238.222222 195.047619 238.222222 208.512847 249.365357 219.428572 263.111111 219.428572L775.164361 219.428572Z\" p-id=\"2481\"></path><path d=\"M775.164361 365.714285C788.910114 365.714285 800.05325 354.798562 800.05325 341.333333 800.05325 327.868105 788.910114 316.952382 775.164361 316.952382L263.111111 316.952382C249.365357 316.952382 238.222222 327.868105 238.222222 341.333333 238.222222 354.798562 249.365357 365.714285 263.111111 365.714285L775.164361 365.714285Z\" p-id=\"2482\"></path><path d=\"M775.164361 536.380951C788.910114 536.380951 800.05325 525.465229 800.05325 512 800.05325 498.534771 788.910114 487.619049 775.164361 487.619049L263.111111 487.619049C249.365357 487.619049 238.222222 498.534771 238.222222 512 238.222222 525.465229 249.365357 536.380951 263.111111 536.380951L775.164361 536.380951Z\" p-id=\"2483\"></path></svg>";
+		this.instance = $("<div></div>");
+		this.image = $("<img src='" + this.loadingPicture + "'/>");
+		this.title = $("<p></p>");
 		
-	  try{
-	  	this.loadingCaption = bookConfig.loadingCaption?bookConfig.loadingCaption:"Loading";
-	  	this.loadingCaptionColor = bookConfig.loadingCaptionColor?bookConfig.loadingCaptionColor:"#DDDDDD";
-	  	this.loadingBackground = bookConfig.loadingBackground?bookConfig.loadingBackground:"#1F2232";
-	  	
-	  	this.loadingPicture = bookConfig.loadingPicture?bookConfig.loadingPicture:"";
-	  	this.hasLoadingPicture = (this.loadingPicture != "");
-	  }catch(err){
-	  	this.loadingCaption = "Loading";
-	  	this.loadingCaptionColor = "#DDDDDD";
-	  	
-	  	this.hasLoadingPicture = false;
-	  	this.loadingPicture = "";
-	  }
-	  
-	  //console.log("loadingPicture:%s", this.loadingPicture);
-	  
-	},
-	
-	init: function(){
-		var doc = $(document);
-		
-		var windowWidth = doc.width(), windowHeight = Math.max(doc.height(),400), progressWidth = 480, progressHeight = 70;
-		
-		var progressLeft = (windowWidth - progressWidth) / 2, progressTop = (windowHeight - progressHeight) / 2;
-		
-		// this.instance.css({"left":progressLeft + "px", "top":progressTop + "px"});
-		
-		this.proTitle.text($(document).attr("title"));
-		this.stepTitle.text(this.loadingCaption + "...");
-		
-		var self = this,iWidth = 0,iStep = 2;
-		var oldColor = this.colorSplit("#3FB5F2");
-		this.timer = window.setInterval(function(){
+		this.bg = $("<div style='transform:scale(1)'></div>");
 
-				/*var pAddR = Math.floor((255 - oldColor.r) * iWidth / 280),
-				    pAddG = Math.floor((255 - oldColor.g) * iWidth / 280),
-				    pAddB = Math.floor((255 - oldColor.b) * iWidth / 280);
-				
-				var newEndColor = self.colorAdd("#3FB5F2",pAddR,pAddG,pAddB);
-				self.addGradient(self.loadingItem,"#3FB5F2",newEndColor);
+		if(this.loadingPicture) this.instance.append(this.image);
 
-				self.loadingItem.css({width : iWidth +"px"});
-				iWidth += iStep;
-				if(iWidth == 280) iWidth = 0; */
-				
-				iWidth += iStep;
-				var iCount = Math.floor(iWidth / 50) % 3;
-				
-				switch(iCount){
-					case 0:{self.stepTitle.text(self.loadingCaption + ".  ");break;}
-					case 1:{self.stepTitle.text(self.loadingCaption + ".. ");break;}
-					case 2:{self.stepTitle.text(self.loadingCaption + "...");break;}
-					default:break;
-				}
-				
-				
-			},40);
-	},
-	show: function(){
-		this.instance.css({"display":"block"});
-	},
-	
-	addLoadingImage : function(){
-		if(this.hasLoadingPicture == false) return;
-		
-		this.loadingImg = $("<img style='display:none;position:absolute;z-index:10000'></img>");
+		this.initAnimationHtml();
 
-  	var self = this;
-  	this.loadingImg.load(function(){
-  		
-  		var doc = $(document), windowWidth = doc.width() , oImage = self.loadingImg[0];
-  		var iImageWidth = oImage.naturalWidth, iImageHeight = oImage.naturalHeight;
-  		
-  		var iInstanceTop;
-  		try{
-  			iInstanceTop = parseInt(self.instance.css("top").replace("px","")) + parseInt(self.instance.css("margin-top").replace("px",""));
-  	  }catch(err){
-  	  	iInstanceTop = iImageHeight;
-  	  }
-  	  
-  		var iLeft = (windowWidth - iImageWidth) / 2, iTop = iInstanceTop - iImageHeight;
-  		
-  		//console.log("image loaded, left:%d,top:%d,width:%d,height:%d",iLeft,iTop,iImageWidth,iImageHeight);
+		this.instance.append(this.title);
+		this.bg.append(this.instance);
+		$("body").append(this.bg);
+	},
 
-  		self.loadingImg.css({
-  			"left" : iLeft + "px",
-  			"top" : iTop + "px",
-  			"width": iImageWidth + "px",
-  			"height": iImageHeight + "px",
-  			"display":"block"
-  		});
-  	});
-  	
-  	this.loadingImg.attr("src", this.loadingPicture);
-  	this.body.append(this.loadingImg);
-	},
-	
-	destroy: function(){
-		window.clearInterval(this.timer);
-		this.body.css({"background-color":""});
-		this.instance.css({"display":"none","z-index":1});
-		this.instance.empty();
-		this.instance.remove();
-		
-		if(this.loadingImg){
-			this.loadingImg.css({"display":"none","z-index":1});
-			this.loadingImg.remove();
-		}
-	},
-	getBrowserType : function(){
-		
-		var isIE11 = function(){
-			var userAgent = navigator.userAgent.toLowerCase();
-			return (!$.browser.msie) && (userAgent.indexOf("trident") > 0);
-		};
-		
-		var browserType = 0;
-		
-		if($.browser.msie || isIE11()) {
-			browserType = 3;
-		} else if($.browser.mozilla && !isIE11()) {
-			browserType = 2;
-		} else if($.browser.safari) {
-			browserType = 1;
-		} else if($.browser.opera) {
-			browserType = 4;
-		};
-		
-		return browserType;
-	},
-	addGradient : function(item,beginColor, endColor){
-		
+	initAnimationHtml : function(){
 
-		var browserType = this.getBrowserType();
+		this.loadBox = $("<div></div>");
+		var img1 = $(this.loadImageUrl);
+		var img2 = $(this.loadImageUrl);	
+		this.img3 = $(this.loadImageUrl);
+		this.img3.attr("class", "loadingRun");
 
-		var sLeft = "",sMsLeft="0";
-		var horz = true;
-		if(horz) {sLeft = "left,";sMsLeft="1";}
+		this.loadBox.css({
+			"position":"relative",
+			"perspective":"200px",
+			"-webkit-transform-style":"preserve-3d",
+			"-o-transform-style":"preserve-3d",
+			"-ms-transform-style":"preserve-3d",
+			"-moz-transform-style":"preserve-3d",
+			"transform-style":"preserve-3d"
+		});
+
+		this.img3.css({
+			"position" : "absolute" ,
+			"left" : "50%" ,
+			"z-index" : "-1" ,
+			"-webkit-transform-origin" : "0 50%",
+			"-o-transform-origin" : "0 50%",
+			"-ms-transform-origin" : "0 50%",
+			"-moz-transform-origin" : "0 50%",
+			"transform-origin" : "0 50%",
+			"fill" : this.loadingCaptionColor
+		});
+
+		img2.css({
+			"position" : "absolute" ,
+			"left" : "-50%" ,
+			"-webkit-transform":"rotateY(180deg)",
+			"-o-transform":"rotateY(180deg)",
+			"-ms-transform":"rotateY(180deg)",
+			"-moz-transform":"rotateY(180deg)",
+			"transform":"rotateY(180deg)",
+			"fill" : this.loadingCaptionColor
+		});
 		
-		item.css({background: "linear-gradient("+ sLeft + beginColor +", "+ endColor +")"});
-		switch(browserType){
-			case 1:{
-				item.css({background: "-webkit-linear-gradient("+ sLeft + beginColor +", "+ endColor +")"});
-				break;
-			}
-			case 2:{
-				item.css({background: "-moz-linear-gradient("+ sLeft + beginColor +", "+ endColor +")"});
-				break;
-			}
-			case 3:{
-				item.css({background: "-ms-linear-gradient("+ sLeft + beginColor +", "+ endColor +")"});
-				item.css("filter", "progid:DXImageTransform.Microsoft.Gradient(GradientType="+ sMsLeft +", EndColorStr=" +
-			endColor + ", StartColorStr=" + beginColor + ")");					
-				break;
-			}
-			case 4:{
-				item.css({background: "-o-linear-gradient("+ sLeft + beginColor +", "+ endColor +")"});
-				break;
-		
-			}
-		}	
-	
-		
+		img1.css({
+			"position" : "absolute" ,
+			"left" : "50%",
+			"fill" : this.loadingCaptionColor
+		});
+
+		this.loadBox.append(img1).append(img2).append(this.img3);
+		this.instance.append(this.loadBox);
 	},
-	colorSplit : function(color){
-		var colorRGB = {r : 0, g : 0, b : 0};
-		
-		var red = "FF",green ="FF",blue = "FF";
-		
-		if(color.length == 7){
-	
-			red = color.substr(1, 2);
-			green = color.substr(3, 2);
-			blue = color.substr(5, 2);		
-		
-		}else if(color.length == 4){
-			
-			red = color.substr(1, 1);
-			green = color.substr(2, 1);
-			blue = color.substr(3, 1);
-			
-			red += red;
-			green += green;
-			blue += blue;
-	
-		}
-		colorRGB.r = parseInt(red,16);
-		colorRGB.g = parseInt(green,16);
-		colorRGB.b = parseInt(blue,16);
-		
-		return colorRGB;
+
+	initConfig : function(){
+		  this.loadingCaption, this.loadingCaptionColor, this.loadingPicture;
+		  try{
+		  	this.loadingCaption = bookConfig.loadingCaption ? bookConfig.loadingCaption : "Loading";
+		  	this.loadingCaptionColor = bookConfig.loadingCaptionColor ? bookConfig.loadingCaptionColor : "#DDDDDD";
+		  	this.loadingBackground = bookConfig.loadingBackground ? bookConfig.loadingBackground : "#1F2232";
+		  	this.loadingPicture = bookConfig.loadingPicture ? bookConfig.loadingPicture : "";
+		  }catch(err){
+		  	this.loadingCaption = "Loading";
+		  	this.loadingCaptionColor = "#BDBDBD";
+		  	this.loadingBackground = "#1F2233";
+		  	this.loadingPicture = "";
+		  }
 	},
 	
-	colorAdd :function(color, addR, addG, addB){
-		var colorRGB = this.colorSplit(color);
-		colorRGB.r = Math.min(colorRGB.r + addR, 255).toString(16);
-		colorRGB.g = Math.min(colorRGB.g + addG, 255).toString(16);
-		colorRGB.b = Math.min(colorRGB.b + addB, 255).toString(16);
-		colorRGB.r = (colorRGB.r.length <= 1) ? '0' + colorRGB.r : colorRGB.r;
-		colorRGB.g = (colorRGB.g.length <= 1) ? '0' + colorRGB.g : colorRGB.g;
-		colorRGB.b = (colorRGB.b.length <= 1) ? '0' + colorRGB.b : colorRGB.b;
-		return '#' + colorRGB.r + colorRGB.g + colorRGB.b;
+	startLoading : function(){
+		this.title.text($(document).attr("title"));
 	},
-	initStatus : function(){
-		window.clearInterval(this.timer);
-		//this.stepTitle.text("Initialization...");
-	},
-	initBackground : function(){
-		
-		this.body.css({"background-color":this.loadingBackground});
-		
-		/*var beginColor,endColor,angle;
-		
-		try{
-			beginColor = bookConfig.bgBeginColor;
-			endColor = bookConfig.bgEndColor;
-			angle = bookConfig.bgMRotation;
-		}catch(err){
-			beginColor = "#1F2232";
-			endColor = "#1F2232";
-			angle = 90;
-		}
-		
-		if(beginColor == undefined) beginColor = "#1F2232";
-		if(endColor == undefined) endColor = "#1F2232";
-		if(angle == undefined) angle = 90;
-		
-		var angleStr = "0% 0%,100% 0%";
-		switch(angle) {
-			case 45:
-				angleStr = "0% 0%,100% 100%";
-				break;
-			case 90:
-				angleStr = "0% 0%,0% 100%";
-				break;
-			case 135:
-				angleStr = "100% 0%,0% 100%";
-				break;
-			case 180:
-				angleStr = "100% 0%,0% 0%";
-			case 0:
-				angleStr = "0% 0%,100% 0%";
-				break;
-		}
-		
-		var browserType = this.getBrowserType();
-		
-		
-		if(browserType == 1) {
-			this.body.css("background-image", "-webkit-gradient(linear," + angleStr + ",from(" + beginColor + "),to(" + endColor + "))");
-			
-		} else if(browserType == 2) {
-			this.body.css("background-image", "-moz-linear-gradient(left " + _angle + "deg," + beginColor + "," + endColor + ")");
 	
-		} else if(browserType == 3) {
-			this.body.css("filter", "progid:DXImageTransform.Microsoft.Gradient(GradientType=1, EndColorStr=" +
-				endColor + ", StartColorStr=" + beginColor + ");");
-		};*/
+	destroy : function(){
+
+		animateOnce(this.bg , {"opacity":"0"} , 0.6 ,function(){
+			this.img3.attr("class", "");
+			$("body>style").html("");
+			this.bg.remove();
+			this.image.attr("src", "");
+			$("body").css({"background-color" : ""});
+		}.bind(this));
+	},
+	
+	initCss : function(){
+		$("html").css({
+			"margin" : 0,
+			"padding" : 0,
+			"width" : "100%",
+			"height" : "100%"
+		});
+
+		$("body").css({
+			"margin" : 0,
+			"padding" : 0,
+			"width" : "100%",
+			"height" : "100%",
+			"position" : "fixed",
+			"background-color" : this.loadingBackground
+		});
+
+		this.bg.css({
+			"margin" : 0,
+			"padding" : 0,
+			"width" : "100%",
+			"height" : "100%",
+			"position" : "fixed",
+			"background-color" : this.loadingBackground
+		});
+
+		this.instance.css({
+			"width" : "100%",
+			"height" : "100%",
+			"color" : this.loadingCaptionColor,
+			"text-align" : "center",
+			"vertical-align" : "middle",
+			"font-family" : "Tahoma",
+		    "position" : "relative",
+
+		});
+
+		this.image.css({
+			"position" : "absolute",
+			"bottom" : "75%",
+			"left" : "50%",
+			"-webkit-transform" : "translate(-50% , 50%)",
+		    "-moz-transform" : "translate(-50% , 50%)",
+		    "-ms-transform" : "translate(-50% , 50%)",
+		    "-o-transform" : "translate(-50% , 50%)",
+			"transform" : "translate(-50% , 50%)",
+			"margin-bottom" : "28px",
+			"max-width" : "40%",
+			"max-height" : "30%"
+		});
 		
-	}
-};
+		if(window.innerHeight <= 300) this.image.hide();
+		
+		var titleTran = "translate(-50%, 16px)";
+		var loadingBoxTran = "translate(-50% , -56px)";
+		
+		// if(this.loadingPicture) {
+			// var titleTran = "translate(-50%, 40px)";
+			// var loadingBoxTran = "translate(-50% , -50%)";
+		// }
+
+		this.title.css({
+			"font-family":"Arial",
+		  	"font-size" : "24px",
+		  	"position" : "absolute",
+		  	"top" : "50%",
+		  	"left" : "50%",
+		  	"-webkit-transform" : titleTran,
+		    "-moz-transform" : titleTran,
+		    "-ms-transform" : titleTran,
+		    "-o-transform" : titleTran,
+			"transform" : titleTran,
+		  	"margin" : 0,
+		  	"padding" : 0
+		});
+
+		this.loadBox.css({
+			"position" : "absolute",
+			"width" : "49px",
+			"height" : "56px",
+			"left" : "50%",
+			"top" : "50%",
+			"-webkit-transform" : loadingBoxTran,
+		    "-moz-transform" : loadingBoxTran,
+		    "-ms-transform" : loadingBoxTran,
+		    "-o-transform" : loadingBoxTran,
+			"transform" : loadingBoxTran,
+		  	"padding" : 0
+		});
+	},
+	
+	onResize : function(){}
+
+}
 
 var jsLoadingBar = new LoadingJS();
