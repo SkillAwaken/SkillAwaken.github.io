@@ -255,12 +255,6 @@ body{
     align-items:center;
 }
 
-.about .container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .about .group{
     width: 40%;
     height: auto;
@@ -330,7 +324,7 @@ body{
         height: auto;
     }
 
-    .about .container{
+    .about{
         position: absolute;
         top: 90px;
         display: flex;
